@@ -13,11 +13,11 @@ const AddExpensePage = () => (
 );
 
 const EditExpensePage = () => (
-  <div>This is from add expense component</div>
+  <div>This is from edit expense component</div>
 );
 
 const HelpPage = () => (
-  <div>This is from add expense component</div>
+  <div>This is from help component</div>
 );
 
 const routes = (

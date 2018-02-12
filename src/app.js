@@ -32,3 +32,6 @@ const jsx = (
 );
 
 ReactDOM.render(jsx, document.getElementById('app'));
+
+//Yarn Test command :yarn test -- --watch
+

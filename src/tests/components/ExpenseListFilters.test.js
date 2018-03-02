@@ -74,14 +74,8 @@ test('should handle date changes', () => {
 	expect(setEndDate).toHaveBeenLastCalledWith(endDate);
 });
 
-test('should render ExpenseListFilters with sort by date', () => {
-
-})
-
-test('should render ExpenseListFilters with sort by date', () => {
-
-})
-// should sort by date
-// should sort by amount
-// should handle date changes
-// should handle date focus changes
+test('should handle date focus changes', () => {
+	const calendarFocused = 'endDate';
+	wrapper.find('DateRangePicker').prop('onFocusChange')(calendarFocused);
+	expect(wrapper.state('calendarFocused')).toBe(calendarFocused);
+});

@@ -63,11 +63,11 @@ database
 // 	'location/city': 'Boston',
 // })
 
-database.ref().update({
-	stressLevel: 9,
-	'job/company': 'Amazon',
-	'location/city': 'Seattle',
-})
+// database.ref().update({
+// 	stressLevel: 9,
+// 	'job/company': 'Amazon',
+// 	'location/city': 'Seattle',
+// })
 
 // set doesn't need to set an object, it can be a string if you want
 // database.ref().set('This is my data');
@@ -88,3 +88,38 @@ database.ref().update({
 // 	.catch(err => {
 // 		console.log(err);
 // 	});
+
+// GRAB DATA
+// database.ref()
+// 	.once('value')
+// 	.then(snapshot => {
+// 		const val = snapshot.val();
+// 		console.log(val);
+// 	})
+// 	.catch(e => {
+// 		console.log('Error fetching data', e);
+// 	});
+
+// This checks for subscription of value changes ('.on')
+const onValueChange = database.ref().on('value', snapshot => {
+	console.log(snapshot.val());
+}, e => {
+	console.log('Error with data fetching', e);
+});
+
+setTimeout(() => {
+	database.ref('age').set(29);
+}, 3500);
+
+setTimeout(() => {
+	database.ref().off(onValueChange);
+}, 7000);
+
+setTimeout(() => {
+	database.ref('age').set(30);
+}, 10000);
+
+database.ref().on('value', snapshot) => {
+	const val = snapshot.val();
+	console.log(`${val.name} is a ${val.job.title} at ${val.job.company}`);
+}

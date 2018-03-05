@@ -21,6 +21,11 @@ database
 	.set({
 		name: 'Oliver Lai',
 		age: 26,
+		stressLevel: 6,
+		job: {
+			title: 'Software Developer',
+			company: 'Google'
+		},
 		isSingle: true,
 		location: {
 			city: 'NYC',
@@ -34,16 +39,35 @@ database
 		console.log('this failed', err);
 	});
 
-database.ref()
-	.remove()
-	.then(() => {
-		console.log('data was removed');
-	}).catch((e) => {
-		console.log('did not remove data', e);
-	});
+// database.ref()
+// 	.remove()
+// 	.then(() => {
+// 		console.log('data was removed');
+// 	}).catch((e) => {
+// 		console.log('did not remove data', e);
+// 	});
 
 // another way to remove data
-database.ref('isSingle').set(null);
+// database.ref('isSingle').set(null);
+
+// database.ref().update({
+// 	name: 'Mike',
+// 	age: 29,
+// 	job: 'Software Developer',
+// 	isSingle: null,
+// });
+
+// just to update property wtihin a nested object
+// database.ref().update({
+// 	job: 'Manager',
+// 	'location/city': 'Boston',
+// })
+
+database.ref().update({
+	stressLevel: 9,
+	'job/company': 'Amazon',
+	'location/city': 'Seattle',
+})
 
 // set doesn't need to set an object, it can be a string if you want
 // database.ref().set('This is my data');

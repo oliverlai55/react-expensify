@@ -2,9 +2,9 @@ import uuid from 'uuid';
 import database from '../firebase/firebase';
 
 // ADD_EXPENSE
-export const addExpense = (expense) => ({
+export const addExpense = expense => ({
 	type: 'ADD_EXPENSE',
-	expense
+	expense,
 });
 
 export const startAddExpense = (expenseData = {}) => {
@@ -18,12 +18,17 @@ export const startAddExpense = (expenseData = {}) => {
 
 		const expense = { description, note, amount, createdAt };
 
-		return database.ref('expenses').push(expense).then(ref => {
-			dispatch(addExpense({
-				id: ref.key,
-				...expense
-			}));
-		});
+		return database
+			.ref('expenses')
+			.push(expense)
+			.then(ref => {
+				dispatch(
+					addExpense({
+						id: ref.key,
+						...expense,
+					}),
+				);
+			});
 	};
 };
 
@@ -39,3 +44,11 @@ export const editExpense = (id, updates) => ({
 	id,
 	updates,
 });
+
+// SET_EXPENSES
+export const setExpenses = expenses => ({
+	type: 'SET_EXPENSES',
+	expenses,
+});
+
+// export const startSetExpenses;

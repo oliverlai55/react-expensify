@@ -20,16 +20,27 @@ const jsx = (
 	</Provider>
 );
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+// Once page is rendered, hasRendered become true so if user refreshes the page, it will not get directed to login again.
+let hasRendered = false;
+const renderApp = () => {
+	if (!hasRendered) {
+		ReactDOM.render(jsx, document.getElementById('app'));
+		hasRendered = true;
+	}
+};
 
-store.dispatch(startSetExpenses()).then(() => {
-	ReactDOM.render(jsx, document.getElementById('app'));
-});
+ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged(user => {
 	if (user) {
-		console.log('log in');
+		store.dispatch(startSetExpenses()).then(() => {
+			renderApp();
+			if (history.location.pathname === '/') {
+				history.push('/dashboard');
+			}
+		});
 	} else {
+		renderApp();
 		history.push('/');
 	}
 });

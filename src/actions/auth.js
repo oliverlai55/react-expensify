@@ -1,5 +1,10 @@
 import { firebase, googleAuthProvider } from '../firebase/firebase';
 
+export const login = (uid) => ({
+	type: 'LOGIN',
+	uid
+});
+
 export const startLogin = () => {
 	// sign in google account using pop up system
 	return () => {
@@ -7,9 +12,12 @@ export const startLogin = () => {
 	};
 };
 
+export const logout = () => ({
+	type: 'LOGOUT',
+});
+
 export const startLogout = () => {
 	return () => {
 		return firebase.auth().signOut();
 	};
 };
-

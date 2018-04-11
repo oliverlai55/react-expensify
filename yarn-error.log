@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/oliverlai/.nvm/versions/node/v8.8.1/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js npm start
+  /Users/oliverlai/.nvm/versions/node/v8.8.1/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js run-dev
 
 PATH: 
   /Users/oliverlai/.rvm/gems/ruby-2.2.4/bin:/Users/oliverlai/.rvm/gems/ruby-2.2.4@global/bin:/Users/oliverlai/.rvm/rubies/ruby-2.2.4/bin:/Users/oliverlai/.nvm/versions/node/v8.8.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/Users/oliverlai/.rvm/bin:/Users/oliverlai/.rvm/bin
@@ -6334,7 +6334,7 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Command "npm" not found.
+  Error: Command "run-dev" not found.
       at new MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
       at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:87307:17
       at Generator.next (<anonymous>)

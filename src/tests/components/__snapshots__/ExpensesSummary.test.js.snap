@@ -16,7 +16,8 @@ exports[`should correctly render ExpensesSummary with 1 expense 1`] = `
       </span>
        
       expense
-       totalling 
+       totalling
+       
       <span>
         $2.35
       </span>
@@ -52,7 +53,8 @@ exports[`should correctly render ExpensesSummary with multiple expenses 1`] = `
       </span>
        
       expenses
-       totalling 
+       totalling
+       
       <span>
         $23,523.45
       </span>
